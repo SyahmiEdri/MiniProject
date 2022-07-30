@@ -1,8 +1,6 @@
-from sqlite3 import Row
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-from tkinter.tix import ROW
 from PIL import Image,ImageTk
 from db import Database
 
