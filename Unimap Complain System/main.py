@@ -34,7 +34,7 @@ date=StringVar()
 entries_frame=Frame(root,bg='#535c68')
 entries_frame.pack(side=TOP)
 title=Label(entries_frame,text='Unimap Complain System',font=('calibri',18,'bold'),bg='#535c68',fg='white')
-title.grid(row=0,cloumnspan=4,padx=10,pady=20)
+title.grid(row=0,columnspan=4,padx=10,pady=20)
 
 #Name
 lblName=Label(entries_frame,text='Name',font=('calibri',16),bg='#535c68',fg='white')
@@ -76,7 +76,7 @@ txtDate.grid(row=3,column=3,padx=10,pady=10,sticky='w')
 
 #Complaint\
 lblComplaint=Label(entries_frame,text='Complain',font=('calibri',16),bg='#535c68',fg='white')
-lblComplaint.grid(row=3,column=3,padx=10,pady=10,sticky='w')
+lblComplaint.grid(row=4,column=3,padx=10,pady=10,sticky='w')
 
 txtComplaint=Text(entries_frame,width=85,height=5,font=('calibri',16))
 txtComplaint.grid(row=5,column=0,columnspan=4,padx=10,sticky='w')
@@ -137,7 +137,7 @@ def clear_complaint():
     txtComplaint.delete(1.0,END)
 
 btn_frame=Frame(entries_frame,bg='#535c68')
-btn_frame.grid(row=6,column=0,coloumnspan=4,padx=10,pady=10,sticky='w')
+btn_frame.grid(row=6,column=0,columnspan=4,padx=10,pady=10,sticky='w')
 btnAdd=Button(btn_frame,command=add_complaint,text='Add Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#16a085',bd=0).grid(row=0,column=0,padx=10)
 
 btnEdit=Button(btn_frame,command=edit_complaint,text='Edit Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#2680b9',bd=0).grid(row=0,column=1,padx=10)
