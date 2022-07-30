@@ -122,11 +122,13 @@ def edit_complaint():
     clear_complaint()
     displayAll()
 
+#function delete complain
 def delete_complaint():
     db.remove(row[0])
     clear_complaint()
     displayAll()
 
+#function clear exist input
 def clear_complaint():
     name.set("")
     matric.set("")
@@ -136,17 +138,23 @@ def clear_complaint():
     date.set("")
     txtComplaint.delete(1.0,END)
 
+#frame for button
 btn_frame=Frame(entries_frame,bg='#535c68')
 btn_frame.grid(row=6,column=0,columnspan=4,padx=10,pady=10,sticky='w')
+
+#Button to add complain
 btnAdd=Button(btn_frame,command=add_complaint,text='Add Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#16a085',bd=0).grid(row=0,column=0,padx=10)
 
+#Button to edit exist complain
 btnEdit=Button(btn_frame,command=edit_complaint,text='Edit Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#2680b9',bd=0).grid(row=0,column=1,padx=10)
 
+#Button to delete complain
 btnDelete=Button(btn_frame,command=delete_complaint,text='Delete Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#c0392b',bd=0).grid(row=0,column=2,padx=10)
 
+#Button to clear exist input
 btnClear=Button(btn_frame,command=clear_complaint,text='Clear Complaint', width=15,font=('calibri',16,'bold'),fg='white',bg='#f39c12',bd=0).grid(row=0,column=3,padx=10)
     
-#Table Frame
+#Table Frame for database
 tree_frame=Frame(root,bg='#ecf0f1')
 tree_frame.place(x=0,y=480,width=1540,height=520)
 style=ttk.Style()
