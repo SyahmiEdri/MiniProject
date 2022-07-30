@@ -1,6 +1,8 @@
+from sqlite3 import Row
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+from tkinter.tix import ROW
 from PIL import Image,ImageTk
 from db import Database
 
@@ -81,6 +83,84 @@ lblComplaint.grid(row=3,column=3,padx=10,pady=10,sticky='w')
 txtComplaint=Text(entries_frame,width=85,height=5,font=('calibri',16))
 txtComplaint.grid(row=5,column=0,columnspan=4,padx=10,sticky='w')
 
+#function get data
+def getData(event):
+    selected_row=tv.focus()
+    data=tv.item(selected_row)
+    global row 
+    row=data["values"]
+    name.set(row[1])
+    matric.set(row[2])
+    email.set(row[3])
+    address.set(row[4])
+    gender.set(row[5])
+    date.set(row[6])
+    txtComplaint.delete(1,0,END)
+    txtComplaint.insert(END,row[7])
 
+#function display
+def displayAll():
+    tv.delete(*tv.get_children())
+    for row in db.fetch():
+        tv.insert("",END,values=row)
 
+#function add complaint
+def add_complaint():
+    if txtName.get()=="" or txtMatric.get()=="" or txtEmail.get()=="" or comboAddress.get()=="" or comboGender.get=="" or txtDate.get()=="" or txtComplaint.get(1.0,END)=="":
+        messagebox.showerror("Error in Input", "Please Fill All the Detail")
+        return
+    db.insert(txtName.get(),txtMatric.get(),txtEmail.get(),comboAddress.get(),comboGender.get(),txtDate.get(),txtComplaint.get(1.0,END))
+    messagebox.showinfo('Success', 'Complain Submitted')
+    clear_complaint()
+    displayAll()
+
+#function edit complain
+def edit_complaint():
+    if txtName.get()=="" or txtMatric.get()=="" or txtEmail.get()=="" or comboAddress.get()=="" or comboGender.get=="" or txtDate.get()=="" or txtComplaint.get(1.0,END)=="":
+        messagebox.showerror("Error in Input", "Please Fill All the Detail")
+        return
+    db.update(row[0],txtName.get(),txtMatric.get(),txtEmail.get(),comboAddress.get(),comboGender.get(),txtDate.get(),txtComplaint.get(1.0,END))
+    messagebox.showinfo('Success', 'Complain Submitted')
+    clear_complaint()
+    displayAll()
+
+def delete_complaint():
+    db.remove(row[0])
+    clear_complaint()
+    displayAll()
+
+def clear_complaint():
+    name.set("")
+    matric.set("")
+    email.set("")
+    address.set("")
+    gender.set("")
+    date.set("")
+    txtComplaint.delete(1.0,END)
+    
+#Table Frame
+tree_frame=Frame(root,bg='#ecf0f1')
+tree_frame.place(x=0,y=480,width=1540,height=520)
+style=ttk.Style()
+style.configure('mystyle.Treeview',font=('calibri',18),rowheight=50)
+style.configure('mystyle.Treeview.Heading',font=('calibri',18))
+
+tv=ttk.Treeview(tree_frame,columns=(1,2,3,4,5,6,7,8),style='mystyle.Treeview')
+tv.heading('1',text='ID')
+tv.column('1',width=5)
+tv.heading('2',text='Name')
+tv.heading('3',text='No.Matric')
+tv.heading('4',text='Email')
+tv.heading('5',text='Address')
+tv.column('5',width=5)
+tv.heading('6',text='Gender')
+tv.column('6',width=5)
+tv.heading('7',text='Date')
+tv.column('7',width=5)
+tv.heading('8',text='Complaint')
+tv['show']='headings'
+tv.bind("<ButtonRelease-1>",getData)
+tv.pack(fill=X)
+
+displayAll()
 root.mainloop()
