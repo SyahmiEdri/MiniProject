@@ -109,7 +109,7 @@ def add_complaint():
         return
     db.insert(txtName.get(),txtMatric.get(),txtEmail.get(),comboAddress.get(),comboGender.get(),txtDate.get(),txtComplaint.get(1.0,END))
     messagebox.showinfo('Success', 'Complain Submitted')
-    clear_complaint()
+    clear_input()
     displayAll()
 
 #function edit complain
@@ -119,17 +119,17 @@ def edit_complaint():
         return
     db.update(row[0],txtName.get(),txtMatric.get(),txtEmail.get(),comboAddress.get(),comboGender.get(),txtDate.get(),txtComplaint.get(1.0,END))
     messagebox.showinfo('Success', 'Complain Submitted')
-    clear_complaint()
+    clear_input()
     displayAll()
 
 #function delete complain
 def delete_complaint():
     db.remove(row[0])
-    clear_complaint()
+    clear_input()
     displayAll()
 
 #function clear exist input
-def clear_complaint():
+def clear_input():
     name.set("")
     matric.set("")
     email.set("")
@@ -145,14 +145,16 @@ btn_frame.grid(row=6,column=0,columnspan=4,padx=10,pady=10,sticky='w')
 #Button to add complain
 btnAdd=Button(btn_frame,command=add_complaint,text='Add Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#16a085',bd=0).grid(row=0,column=0,padx=10)
 
+#Button to clear exist input
+btnClear=Button(btn_frame,command=clear_input,text='Clear Complaint', width=15,font=('calibri',16,'bold'),fg='white',bg='#f39c12',bd=0).grid(row=0,column=1,padx=10)
+
 #Button to edit exist complain
-btnEdit=Button(btn_frame,command=edit_complaint,text='Edit Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#2680b9',bd=0).grid(row=0,column=1,padx=10)
+btnEdit=Button(btn_frame,command=edit_complaint,text='Edit Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#2680b9',bd=0).grid(row=0,column=2,padx=10)
 
 #Button to delete complain
-btnDelete=Button(btn_frame,command=delete_complaint,text='Delete Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#c0392b',bd=0).grid(row=0,column=2,padx=10)
+btnDelete=Button(btn_frame,command=delete_complaint,text='Delete Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#c0392b',bd=0).grid(row=0,column=3,padx=10)
 
-#Button to clear exist input
-btnClear=Button(btn_frame,command=clear_complaint,text='Clear Complaint', width=15,font=('calibri',16,'bold'),fg='white',bg='#f39c12',bd=0).grid(row=0,column=3,padx=10)
+
     
 #Table Frame for database
 tree_frame=Frame(root,bg='#ecf0f1')
