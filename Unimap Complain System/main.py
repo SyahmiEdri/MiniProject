@@ -93,7 +93,7 @@ def getData(event):
     address.set(row[4])
     gender.set(row[5])
     date.set(row[6])
-    txtComplaint.delete(1,0,END)
+    txtComplaint.delete(1.0,END)
     txtComplaint.insert(END,row[7])
 
 #function display
@@ -114,7 +114,8 @@ def add_complaint():
 
 #function edit complain
 def edit_complaint():
-    if txtName.get()=="" or txtMatric.get()=="" or txtEmail.get()=="" or comboAddress.get()=="" or comboGender.get=="" or txtDate.get()=="" or txtComplaint.get(1.0,END)=="":
+    if txtName.get()=="" or txtMatric.get()=="" or txtEmail.get()=="" or comboAddress.get()=="" or comboGender.get=="" or txtDate.get()=="" or txtComplaint.get(
+        1.0,END)=="":
         messagebox.showerror("Error in Input", "Please Fill All the Detail")
         return
     db.update(row[0],txtName.get(),txtMatric.get(),txtEmail.get(),comboAddress.get(),comboGender.get(),txtDate.get(),txtComplaint.get(1.0,END))

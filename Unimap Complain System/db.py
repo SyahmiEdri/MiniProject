@@ -40,8 +40,8 @@ class Database:
         
     #Update a record in DB
     def update(self,id,name,matric,email,address,gender,date,complaint):
-        self.cur.execute("update complaints set name=?,matric?,email=?,address=?,gender=?,date=?,complaint=? where id=?",
-                        (name,matric,email,address,gender,date,complaint,id))
+        self.cur.execute("update complaints set name=?,matric=?,email=?,address=?,gender=?,date=?,complaint=? where id=?",
+                         (name,matric,email,address,gender,date,complaint,id))
         self.con.commit()
         
        
