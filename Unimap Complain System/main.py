@@ -163,7 +163,7 @@ btnDelete=Button(btn_frame,command=delete_complaint,text='Delete Complaint',widt
 tree_frame=Frame(root,bg='#ecf0f1')
 tree_frame.place(x=0,y=480,width=1540,height=520)
 style=ttk.Style()
-style.configure('mystyle.Treeview',font=('calibri',18),rowheight=50)
+style.configure('mystyle.Treeview',font=('calibri',18),rowheight=70)
 style.configure('mystyle.Treeview.Heading',font=('calibri',18))
 
 tv=ttk.Treeview(tree_frame,columns=(1,2,3,4,5,6,7,8),style='mystyle.Treeview')
