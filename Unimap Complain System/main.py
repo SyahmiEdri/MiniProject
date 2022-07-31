@@ -121,7 +121,7 @@ def edit_complaint():
         messagebox.showerror("Error in Input", "Please Fill All the Detail")
         return
     db.update(row[0],txtName.get(),txtMatric.get(),txtEmail.get(),comboAddress.get(),comboGender.get(),txtDate.get(),txtComplaint.get(1.0,END))
-    messagebox.showinfo('Success', 'Complain Submitted')
+    messagebox.showinfo('Success', 'Complain Edited')
     clear_input()
     displayAll()
 
@@ -146,7 +146,7 @@ btn_frame=Frame(entries_frame,bg='#535c68')
 btn_frame.grid(row=6,column=0,columnspan=4,padx=10,pady=10,sticky='w')
 
 #Button to add complain
-btnAdd=Button(btn_frame,command=add_complaint,text='Add Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#16a085',bd=0).grid(row=0,column=0,padx=10)
+btnAdd=Button(btn_frame,command=add_complaint,text='Add Complain',width=15,font=('calibri',16,'bold'),fg='white',bg='#16a085',bd=0).grid(row=0,column=0,padx=10)
 
 #Button to clear exist input
 btnClear=Button(btn_frame,command=clear_input,text='Clear Input', width=15,font=('calibri',16,'bold'),fg='white',bg='#f39c12',bd=0).grid(row=0,column=1,padx=10)
