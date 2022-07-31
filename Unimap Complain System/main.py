@@ -149,7 +149,7 @@ btn_frame.grid(row=6,column=0,columnspan=4,padx=10,pady=10,sticky='w')
 btnAdd=Button(btn_frame,command=add_complaint,text='Add Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#16a085',bd=0).grid(row=0,column=0,padx=10)
 
 #Button to clear exist input
-btnClear=Button(btn_frame,command=clear_input,text='Clear Complaint', width=15,font=('calibri',16,'bold'),fg='white',bg='#f39c12',bd=0).grid(row=0,column=1,padx=10)
+btnClear=Button(btn_frame,command=clear_input,text='Clear Input', width=15,font=('calibri',16,'bold'),fg='white',bg='#f39c12',bd=0).grid(row=0,column=1,padx=10)
 
 #Button to edit exist complain
 btnEdit=Button(btn_frame,command=edit_complaint,text='Edit Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#2680b9',bd=0).grid(row=0,column=2,padx=10)
