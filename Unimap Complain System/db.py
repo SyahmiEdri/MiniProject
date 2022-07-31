@@ -43,5 +43,3 @@ class Database:
         self.cur.execute("update complaints set name=?,matric=?,email=?,address=?,gender=?,date=?,complaint=? where id=?",
                          (name,matric,email,address,gender,date,complaint,id))
         self.con.commit()
-        
-       

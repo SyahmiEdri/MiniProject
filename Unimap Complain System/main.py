@@ -106,7 +106,8 @@ def displayAll():
 
 #function add complaint
 def add_complaint():
-    if txtName.get()=="" or txtMatric.get()=="" or txtEmail.get()=="" or comboAddress.get()=="" or comboGender.get=="" or txtDate.get()=="" or txtComplaint.get(1.0,END)=="":
+    if txtName.get()=="" or txtMatric.get()=="" or txtEmail.get()=="" or comboAddress.get()=="" or comboGender.get=="" or txtDate.get()=="" or txtComplaint.get(
+        1.0,END)=="":
         messagebox.showerror("Error in Input", "Please Fill All the Detail")
         return
     db.insert(txtName.get(),txtMatric.get(),txtEmail.get(),comboAddress.get(),comboGender.get(),txtDate.get(),txtComplaint.get(1.0,END))
@@ -158,7 +159,7 @@ btnEdit=Button(btn_frame,command=edit_complaint,text='Edit Complaint',width=15,f
 btnDelete=Button(btn_frame,command=delete_complaint,text='Delete Complaint',width=15,font=('calibri',16,'bold'),fg='white',bg='#c0392b',bd=0).grid(row=0,column=3,padx=10)
 
 
-    
+   
 #Table Frame for database
 tree_frame=Frame(root,bg='#ecf0f1')
 tree_frame.place(x=0,y=480,width=1540,height=520)
